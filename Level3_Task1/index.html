@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Gallery</title>
+  <style>
+    /* Gallery Styles */
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .thumbnail {
+      margin: 10px;
+      cursor: pointer;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .thumbnail img {
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 5px;
+    }
+
+    .thumbnail:hover {
+      transform: scale(1.2);
+    }
+
+    .enlarged-image-container {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.8);
+      z-index: 999;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .enlarged-image {
+      max-width: 80%;
+      max-height: 80%;
+      border-radius: 5px;
+    }
+
+
+    .slideshow-container {
+      position: relative;
+      max-width: 500px;
+      margin: auto;
+      overflow: hidden;
+    }
+
+    .slideshow-image {
+      display: none;
+      width: 100%;
+    }
+
+    .fade {
+      animation: fade 2s infinite;
+    }
+
+    @keyframes fade {
+      0% {
+        opacity: 0;
+      }
+
+      25% {
+        opacity: 1;
+      }
+
+      75% {
+        opacity: 1;
+      }
+
+      100% {
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Image Gallery -->
+  <div class="gallery">
+    <div class="thumbnail" onclick="showImage('image1')">
+      <img src="first.jpg" alt="Thumbnail 1">
+    </div>
+    <div class="thumbnail" onclick="showImage('image2')">
+      <img src="second.jpg" alt="Thumbnail 2">
+    </div>
+    <div class="thumbnail" onclick="showImage('image3')">
+      <img src="third.jpg" alt="Thumbnail 3">
+    </div>
+  </div>
+
+  <!-- Enlarged Image Container -->
+  <div class="enlarged-image-container" onclick="hideImage()">
+    <img class="enlarged-image" id="enlarged-image" src="" alt="Enlarged Image">
+  </div>
+
+
+
+
+
+  <div class="slideshow-container">
+    <img class="slideshow-image fade" src="first.jpg" alt="Slideshow Image 1">
+    <img class="slideshow-image fade" src="second.jpg" alt="Slideshow Image 2">
+    <img class="slideshow-image fade" src="third.jpg" alt="Slideshow Image 3">
+  </div>
+
+  <script>
+    function showImage(id) {
+      const enlargedImage = document.getElementById('enlarged-image');
+      enlargedImage.src = document.querySelector(`#${id} img`).src;
+      document.querySelector('.enlarged-image-container').style.display = 'flex';
+    }
+
+    function hideImage() {
+      document.querySelector('.enlarged-image-container').style.display = 'none';
+    }
+
+
+
+
+
+    let currentIndex = 0;
+    const images = document.querySelectorAll('.slideshow-image');
+
+    function showSlides() {
+      for (let i = 0; i < images.length; i++) {
+        images[i].style.display = "none";
+      }
+      currentIndex++;
+      if (currentIndex > images.length) {
+        currentIndex = 1;
+      }
+      images[currentIndex - 1].style.display = "block";
+      setTimeout(showSlides, 2000); // Change image every 2 seconds
+    }
+
+    showSlides();
+  </script>
+
+</body>
+
+</html>
