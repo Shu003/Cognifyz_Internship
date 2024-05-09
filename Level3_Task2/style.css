@@ -1,0 +1,92 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #033f4342;
+}
+
+header {
+  background-color: #007bff;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+.container {
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+}
+
+.highlight {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.intro {
+  margin-bottom: 20px;
+}
+
+.qualifications {
+  margin-bottom: 20px;
+}
+
+footer {
+
+  justify-content: space-around;
+  display: flex;
+  background-color: #f4f4f4;
+  padding: 20px;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+footer a {
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 500;
+  color: #007bff;
+}
+
+footer div{
+  transition: all 0.3s ease-in-out;
+}
+
+footer div:hover{
+  transform: translateY(-5px);
+}
+
+footer p {
+  margin: 0;
+}
+
+.fa-phone {
+  padding: 4px;
+  font-size: 16px;
+}
+
+.fa-envelope,
+.fa-linkedin,
+.fa-github {
+  font-size: 16px;
+  padding: 4px;
+  font-weight: 800;
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: #0056b3;
+}
